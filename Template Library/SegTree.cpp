@@ -1,46 +1,47 @@
 struct item {
     
-}
+};
+
 struct SegTree {
     ll n;
     item id;
     vector<item> tree;
 
-    SegTree(int N) {
+    SegTree(ll N) {
         init(N, id);
     }
 
-    SegTree(int N, item x) {
+    SegTree(ll N, item x) {
         init(N, x);
     }
 
-    void init(int N, item x) {
+    void init(ll N, item x) {
         id = x;
         n = N;
         while(__builtin_popcountll(n) != 1) ++n;
         tree.resize(2*n, id);
     }
 
-    void update(ll pos, item val) {
-        pos += n;
-        tree[pos] = val;
-        pos /= 2;
+    void update(ll x, item val) {
+        x += n;
+        tree[x] = val;
+        x /= 2;
 
-        while(pos >= 1) {
-            tree[pos] = merge(tree[2*pos], tree[2*pos + 1]);
-            pos /= 2;
+        while(x >= 1) {
+            tree[x] = merge(tree[2*x], tree[2*x + 1]);
+            x /= 2;
         }
     }
 
-    item query(ll node, ll lo, ll hi, ll ql, ll qh) {
-        if(lo > qh || hi < ql)
+    item query(ll x, ll lx, ll rx, ll l, ll r) {
+        if(lx > r || rx < l)
             return id;
-        if(lo >= ql && hi <= qh)
-            return tree[node];
+        if(lx >= l && rx <= r)
+            return tree[x];
 
-        ll mid = (lo + hi) / 2;
-        item a = query(2*node, lo, mid, ql, qh);
-        item b = query(2*node + 1, mid + 1, hi, ql, qh);
+        ll d = (lx + rx) / 2;
+        item a = query(2*x, lx, d, l, r);
+        item b = query(2*x + 1, d + 1, rx, l, r);
 
         return merge(a, b);
     }
@@ -50,6 +51,7 @@ struct SegTree {
     }
 
     item merge(item l, item r) {
-        return l + r;
+        item ans;
+        return ans;
     }
 };

@@ -1,10 +1,8 @@
 struct UFDS {
-    ll n;
     vl sz;
     vl lnk;
 
     UFDS(ll N) {
-        n = N;
         sz = vl(N + 1, 1);
         lnk = vl(N + 1);
         iota(all(lnk), 0);

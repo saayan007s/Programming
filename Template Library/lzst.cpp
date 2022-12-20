@@ -1,6 +1,7 @@
 struct item {
     
 };
+
 struct lzst {
     ll n;
     item id;
@@ -21,7 +22,7 @@ struct lzst {
         tree.resize(2*n, id);
     }
 
-    item app(item x, ll ch, ll range) {
+    item app(item x, item p, ll range) {
         if() {
             return x;
         }
