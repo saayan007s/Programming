@@ -35,7 +35,7 @@ vnoremap gcu :'<, '>norm ^xxx<cr>
 " writing and quiting
 nnoremap W :w<cr>
 nnoremap Q :q<cr>
-nnoremap S :s//g<Left><Left>
+nnoremap S :%s//g<Left><Left>
 
 " navigating between windows
 nnoremap <C-l> <C-w>l
