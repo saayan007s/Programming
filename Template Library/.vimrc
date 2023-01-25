@@ -25,6 +25,7 @@ let mapleader=" "
 nnoremap <leader>t :tabnew<cr>
 nnoremap <C-n> :norm
 nnoremap <Tab> %
+nnoremap <C-a> ggVG
 
 " commenting
 nnoremap gcc I// <Esc>
@@ -46,9 +47,11 @@ nnoremap <C-k> <C-w>k
 " new file
 autocmd BufNewFile *.cpp 0r ~/Templates/Template.cpp
 " compiling and submitting
-nnoremap <F4> :!gedit %<cr>
+autocmd filetype cpp nnoremap <buffer> <F3> :!./%:r <%:r.in.1<cr>
+autocmd filetype cpp nnoremap <buffer> <F4> :!./run<cr>
 autocmd filetype cpp nnoremap <buffer> <F5> :!g++ % -o %:r -Wall -lm -DEVAL -std=c++17<cr>
 autocmd filetype cpp nnoremap <buffer> <F6> :!./%:r <in >out<cr>
+autocmd filetype cpp nnoremap <buffer> <F7> :!./%:r<cr>
 
 " curly braces
 inoremap { {}<Left><cr><cr><Up>
@@ -56,3 +59,6 @@ inoremap } {}<Left>
 
 " colorscheme
 colo desert
+
+set splitbelow
+set splitright
