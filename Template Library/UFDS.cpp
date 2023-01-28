@@ -3,13 +3,17 @@ struct UFDS {
     vl lnk;
 
     UFDS(ll N) {
-        sz = vl(N + 1, 1);
-        lnk = vl(N + 1);
+        sz = vl(N, 1);
+        lnk = vl(N);
         iota(all(lnk), 0);
     }
 
     ll find(ll a) {
-        return (a == lnk[a] ? a : lnk[a] = find(lnk[a]));
+        if(a == lnk[a]) {
+            return a;
+        }
+        
+        return lnk[a] = find(lnk[a]);
     }
 
     bool same(ll a, ll b) {
