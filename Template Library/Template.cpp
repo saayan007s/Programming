@@ -15,6 +15,7 @@ using vpl = vector<pair<long long, long long>>;
 #define sc second
 #define mp make_pair
 #define pb push_back
+#define eb emplace_back
 #define nl "\n"
 #define all(x) (x).begin(),(x).end()
 #define rall(x) (x).rbegin(),(x).rend()
