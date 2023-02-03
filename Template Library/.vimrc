@@ -47,9 +47,8 @@ nnoremap <C-k> <C-w>k
 " new file
 autocmd BufNewFile *.cpp 0r ~/Templates/Template.cpp
 " compiling and submitting
-autocmd filetype cpp nnoremap <buffer> <F3> :!./%:r <%:r.in.1<cr>
 autocmd filetype cpp nnoremap <buffer> <F4> :!./run<cr>
-autocmd filetype cpp nnoremap <buffer> <F5> :!g++ % -o %:r -Wall -lm -DEVAL -std=c++17<cr>
+autocmd filetype cpp nnoremap <buffer> <F5> :!g++ % -o %:r -Wall -lm -DEVAL -static -O2 -std=c++17<cr>
 autocmd filetype cpp nnoremap <buffer> <F6> :!./%:r <in >out<cr>
 autocmd filetype cpp nnoremap <buffer> <F7> :!./%:r<cr>
 
