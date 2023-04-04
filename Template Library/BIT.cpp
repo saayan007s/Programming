@@ -1,8 +1,10 @@
 struct FT { // fenwick tree
     vl tree;
+    ll n;
 
     FT(ll N) {
         tree.resize(N);
+        n = N - 1;
     }
 
     void mod(ll pos, ll val) {
@@ -18,6 +20,7 @@ struct FT { // fenwick tree
             res += tree[pos];
             pos -= pos&-pos;
         }
+        return res;
     }
 
     ll qry(ll l, ll r) {
