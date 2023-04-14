@@ -1,0 +1,10 @@
+If you would like to calculate
+- SOP : Enter 1
+- POS : Enter 0
+Enter the numbers in the cardinal format separated by a space. When done enter "-1"
+0 1 1 0 
+1 0 1 0 
+0 1 0 0 
+0 1 1 1 
+
+a' b c' d'  + a b' c  + a' c d  + a c' d  + b' d 
