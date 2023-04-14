@@ -14,6 +14,8 @@ signed main() {
     int t = 1;
     /* cin >> t; */
     for(int i = 1; i <= t; ++i) {
+        cout << "Case #" << i << nl;
         solve();
+        cout << nl;
     }
 }
