@@ -7,6 +7,10 @@ using namespace std;
 #define eb emplace_back
 #define nl "\n"
 
+void solve() {
+
+}
+
 signed main() {
     ios::sync_with_stdio(0);
     cin.tie(0);
