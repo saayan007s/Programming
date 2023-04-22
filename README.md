@@ -6,4 +6,4 @@ I have started to uploaded my solutions to problems from problem sets that I hav
 
 The CSES problem set is [here](https://cses.fi/problemset/)
 
-The Codeforces problem set is [here](https://codeforces.com/edu/course/2/)
+This is [cp-algorithms](https://cp-algorithms.com/)
