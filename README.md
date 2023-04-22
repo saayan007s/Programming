@@ -1,5 +1,7 @@
 # Competitive-Programming
 
-I just upload stuff here from time to time.
-I have my template library uploaded here so I can use it from any computer.
-I have also solved a lot of the problems from a course in edu from codeforces so I put those here.
+This repository has my template library so that anyone can see it and so that I can access it from anywhere.
+
+I have started to uploaded my solutions to problems from problem sets that I have nearly completed.
+
+The CSES problem set is [here](https://cses.fi/problemset/)
