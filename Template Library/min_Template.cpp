@@ -1,7 +1,7 @@
 #include "bits/stdc++.h"
 using namespace std;
 
-#define int long long
+#define long long long
 #define fr first
 #define sc second
 #define eb emplace_back
@@ -11,7 +11,7 @@ void solve() {
 
 }
 
-signed main() {
+int main() {
     ios::sync_with_stdio(0);
     cin.tie(0);
 
