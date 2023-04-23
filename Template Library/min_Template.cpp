@@ -1,7 +1,7 @@
 #include "bits/stdc++.h"
 using namespace std;
 
-#define long long long
+#define long int64_t
 #define fr first
 #define sc second
 #define eb emplace_back
