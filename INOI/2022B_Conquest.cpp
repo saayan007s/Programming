@@ -1,4 +1,4 @@
-#include "bits/stdc++.h"
+include "bits/stdc++.h"
 using namespace std;
 
 #define int long long
@@ -39,12 +39,10 @@ void precompute() {
         for(int i = 1; i <= n; ++i) {
             int u = par[i][j - 1];
             par[i][j] = par[u][j - 1];
-            dp[i][j][0] = max(dp[i][j - 1][1] + dp[u][j - 1][2] - v[u], dp[i][j - 1][0] + dp[u][j - 1][0]);
-            dp[i][j][1] = max(dp[i][j - 1][1] + dp[u][j - 1][3] - v[u], dp[i][j - 1][0] + dp[u][j - 1][1]);
-            dp[i][j][2] = max(dp[i][j - 1][3] + dp[u][j - 1][2] - v[u], dp[i][j - 1][2] + dp[u][j - 1][0]);
-            dp[i][j][3] = max(dp[i][j - 1][3] + dp[u][j - 1][3] - v[u], dp[i][j - 1][2] + dp[u][j - 1][1]);
-
-            for(int x = 0; x < 4; ++x) dp[i][j][x] = max(dp[i][j][x], -inf);
+            for(int x = 0; x < 4; ++x) {
+                int dn = x&2, up = x&1;
+                dp[i][j][x] = max(dp[i][j - 1][dn + 1] + dp[u][j - 1][up + 2] - v[u], dp[i][j - 1][dn] + dp[u][j - 1][up]);
+            }
         }
     }
 }
@@ -69,10 +67,10 @@ int solve(int a, int b) {
             }
             else {
                 int tmp[4];
-                tmp[0] = max(r[0] + dp[b][j][0], r[1] + dp[b][j][2] - v[b]);
-                tmp[1] = max(r[0] + dp[b][j][1], r[1] + dp[b][j][3] - v[b]);
-                tmp[2] = max(r[2] + dp[b][j][0], r[3] + dp[b][j][2] - v[b]);
-                tmp[3] = max(r[2] + dp[b][j][1], r[3] + dp[b][j][3] - v[b]);
+                for(int x = 0; x < 4; ++x) {
+                    int dn = x&2, up = x&1;
+                    tmp[x] = max(r[dn + 1] + dp[b][j][up + 2] - v[b], r[dn] + dp[b][j][up]);
+                }
                 for(int i = 0; i < 4; ++i) r[i] = tmp[i];
             }
             b = par[b][j];
@@ -93,10 +91,10 @@ int solve(int a, int b) {
         }
         else {
             int tmp[4];
-            tmp[0] = max(l[0] + dp[a][j][0], l[1] + dp[a][j][2] - v[a]);
-            tmp[1] = max(l[0] + dp[a][j][1], l[1] + dp[a][j][3] - v[a]);
-            tmp[2] = max(l[2] + dp[a][j][0], l[3] + dp[a][j][2] - v[a]);
-            tmp[3] = max(l[2] + dp[a][j][1], l[3] + dp[a][j][3] - v[a]);
+            for(int x = 0; x < 4; ++x) {
+                int dn = x&2, up = x&1;
+                tmp[x] = max(l[dn + 1] + dp[a][j][up + 2] - v[a], l[dn] + dp[a][j][up]);
+            }
             for(int i = 0; i < 4; ++i) l[i] = tmp[i];
         }
         a = par[a][j];
@@ -107,10 +105,10 @@ int solve(int a, int b) {
         }
         else {
             int tmp[4];
-            tmp[0] = max(r[0] + dp[b][j][0], r[1] + dp[b][j][2] - v[b]);
-            tmp[1] = max(r[0] + dp[b][j][1], r[1] + dp[b][j][3] - v[b]);
-            tmp[2] = max(r[2] + dp[b][j][0], r[3] + dp[b][j][2] - v[b]);
-            tmp[3] = max(r[2] + dp[b][j][1], r[3] + dp[b][j][3] - v[b]);
+            for(int x = 0; x < 4; ++x) {
+                int dn = x&2, up = x&1;
+                tmp[x] = max(r[dn + 1] + dp[b][j][up + 2] - v[b], r[dn] + dp[b][j][up]);
+            }
             for(int i = 0; i < 4; ++i) r[i] = tmp[i];
         }
         b = par[b][j];
