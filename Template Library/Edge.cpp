@@ -1,12 +1,12 @@
 struct Edge {
-    ll u, v, wt;
-    ll id;
+    int u, v, wt;
+    int id;
 
     bool operator < (const Edge &other) {
         return wt < other.wt;
     }
 
     void print() {
-        cout << u << ' ' << v << ' ' << wt << ' ' << id << nl;;
+        cout << u << ' ' << v << ' ' << wt << ' ' << id << nl;
     }
 };

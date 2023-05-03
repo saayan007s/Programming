@@ -3,26 +3,26 @@ struct item {
 };
 
 struct lzst {
-    ll n;
+    int n;
     item id;
     vector<item> tree;
 
-    lzst(ll N) {
+    lzst(int N) {
         init(N, id);
     }
 
-    lzst(ll N, item x) {
+    lzst(int N, item x) {
         init(N, x);
     }
 
-    void init(ll N, item x) {
+    void init(int N, item x) {
         id = x;
         n = N;
         while(__builtin_popcountll(n) != 1) ++n;
         tree.resize(2*n, id);
     }
 
-    item app(item x, item p, ll range) {
+    item app(item x, item p, int range) {
         if() {
             return x;
         }
@@ -30,7 +30,7 @@ struct lzst {
         return x;
     }
 
-    void prop(ll x, ll lx, ll rx) {
+    void prop(int x, int lx, int rx) {
         if(lx == rx) {
             tree[x].upd = 0;
             return;
@@ -42,7 +42,7 @@ struct lzst {
         tree[x].upd = 0;
     }
 
-    void mod(ll x, ll lx, ll rx, ll l, ll r, ll v) {
+    void mod(int x, int lx, int rx, int l, int r, int v) {
         prop(x, lx, rx);
         if(rx < l || r < lx)
             return;
@@ -51,32 +51,32 @@ struct lzst {
             return;
         }
 
-        ll d = (lx + rx) / 2;
+        int d = (lx + rx) / 2;
         mod(2*x, lx, d, l, r, v);
         mod(2*x + 1, d + 1, rx, l, r, v);
 
         tree[x] = merge(tree[2*x], tree[2*x + 1]);
     }
 
-    void mod(ll l, ll r, ll v) {
+    void mod(int l, int r, int v) {
         mod(1, 0, n - 1, l, r, v);
     }
 
-    item query(ll x, ll lx, ll rx, ll l, ll r) {
+    item query(int x, int lx, int rx, int l, int r) {
         prop(x, lx, rx);
         if(lx > r || rx < l)
             return id;
         if(lx >= l && rx <= r)
             return tree[x];
 
-        ll d = (lx + rx) / 2;
+        int d = (lx + rx) / 2;
         item a = query(2*x, lx, d, l, r);
         item b = query(2*x + 1, d + 1, rx, l, r);
 
         return merge(a, b);
     }
 
-    item query(ll l, ll r) {
+    item query(int l, int r) {
         return query(1, 0, n - 1, l, r);
     }
 

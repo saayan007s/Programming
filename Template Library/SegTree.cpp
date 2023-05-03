@@ -3,26 +3,26 @@ struct item {
 };
 
 struct SegTree {
-    ll n;
+    int n;
     item id;
     vector<item> tree;
 
-    SegTree(ll N) {
+    SegTree(int N) {
         init(N, id);
     }
 
-    SegTree(ll N, item x) {
+    SegTree(int N, item x) {
         init(N, x);
     }
 
-    void init(ll N, item x) {
+    void init(int N, item x) {
         id = x;
         n = N;
         while(__builtin_popcountll(n) != 1) ++n;
         tree.resize(2*n, id);
     }
 
-    void update(ll x, item val) {
+    void update(int x, item val) {
         x += n;
         tree[x] = val;
         x /= 2;
@@ -33,20 +33,20 @@ struct SegTree {
         }
     }
 
-    item query(ll x, ll lx, ll rx, ll l, ll r) {
+    item query(int x, int lx, int rx, int l, int r) {
         if(lx > r || rx < l)
             return id;
         if(lx >= l && rx <= r)
             return tree[x];
 
-        ll d = (lx + rx) / 2;
+        int d = (lx + rx) / 2;
         item a = query(2*x, lx, d, l, r);
         item b = query(2*x + 1, d + 1, rx, l, r);
 
         return merge(a, b);
     }
 
-    item query(ll ql, ll qh) {
+    item query(int ql, int qh) {
         return query(1, 0, n - 1, ql, qh);
     }
 

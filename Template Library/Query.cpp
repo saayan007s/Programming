@@ -1,7 +1,7 @@
 struct Query {
-	ll l, r, idx;
+	int l, r, idx;
 	
-	inline pl toPair() const {
+	inline pair<int, int> toPair() const {
 		return make_pair(l / block, ((l / block) & 1) ? -r : r);
 	}
 };
