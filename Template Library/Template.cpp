@@ -5,7 +5,7 @@ using namespace std;
 #define fr first
 #define sc second
 #define eb emplace_back
-#define nl "\n"
+const char nl = '\n';
 
 void solve() {
 
