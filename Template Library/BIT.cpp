@@ -1,23 +1,26 @@
+// not well tested
+// cses point add, range query
+template<typename T>
 struct BIT {
     int n;
-    vector<int> a;
+    vector<T> a;
 
     BIT(int N) {
         n = N - 1;
         a.resize(N);
     }
 
-    void mod(int x, int v) {
+    void mod(int x, T v) {
         for(; x <= n; x += x&-x) a[x] += v;
     }
 
-    int qry(int x) {
-        int res = 0;
-        for(;x > 0; x -= x&-x) res += a[x];
-        return res;
+    T qry(int x, int y) {
+        T ret = 0;
+        for(;y > 0; y -= y&-y) ret += a[y];
+        for(--x;x > 0; x -= x&-x) ret -= a[x];
+        return ret;
     }
-
-    int qry(int x, int y) {
-        return qry(y) - qry(x - 1);
+    T qry(int x) {
+        return qry(0, x);
     }
 };
