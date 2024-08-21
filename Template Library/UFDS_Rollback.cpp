@@ -12,7 +12,8 @@ struct UFDS {
     }
 
     int find(int a) {
-        return (a == lnk[a] ? a : find(lnk[a]));
+        while(a != lnk[a]) a = lnk[a];
+        return a;
     }
 
     void unite(int a, int b) {

@@ -4,7 +4,7 @@ struct UFDS {
     UFDS(int N) {
         n = N;
         lnk.resize(N); iota(lnk.begin(), lnk.end(), 0);
-        sz.resize(N);
+        sz.resize(N, 1);
     }
 
     int find(int a) {
