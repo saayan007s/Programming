@@ -4,36 +4,32 @@ vector<int> adj[];
 int par[], dep[], sz[], head[], pos[];
 int timer;
 
-int dfs(int x = 1, int p = 0) {
+void dfs(int x = 1, int p = 0) {
+    dep[x] = (p == 0 ? 0 : dep[p] + 1);
     par[x] = p;
     sz[x] = 1;
-    for(int y : adj[x]) {
-        if(y == p) continue;
-        dep[y] = dep[x] + 1;
-        sz[x] += dfs(y, x);
+    for(int y : adj[x]) if(y != p) {
+        dfs(y, x);
+        sz[x] += sz[y];
     }
-    return sz[x];
 }
 
 void build(int x = 1, int p = 0, int h = 1) {
     head[x] = h;
-    pos[x] = timer++;
+    pos[x] = ++timer;
     int g = 0;
-    for(int y : adj[x]) {
-        if(y == p) continue;
+    for(int y : adj[x]) if(y != p) {
         if(g == 0 || sz[g] < sz[y]) g = y;
     }
 
     if(g != 0) build(g, x, h);
-    for(int y : adj[x]) {
-        if(y == p || y == g) continue;
+    for(int y : adj[x]) if(y != p && y != g) {
         build(y, x, y);
     }
 }
 
 void decompose() {
-    timer = 1;
-    dep[1] = 0;
+    timer = 0;
     dfs();
     build();
 }

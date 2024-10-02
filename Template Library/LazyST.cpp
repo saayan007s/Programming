@@ -1,3 +1,6 @@
+// use the atcoder template
+// if the template is hard to understand then just implement all the methods given in atcoder urself
+// pass methods to constructor using <> brackets (carrot brackets) 
 struct item {
     
 };

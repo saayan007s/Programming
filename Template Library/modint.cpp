@@ -1,3 +1,5 @@
+// use the shit given in atcoder
+// also use overloading and implement add(int, int), add(int, ll), add(ll, int), add(ll, ll)
 const int mod = ;
 
 int add(int x, int y) {

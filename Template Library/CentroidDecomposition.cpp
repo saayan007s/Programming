@@ -17,9 +17,16 @@ int find_cen(int x, int p, int f) {
     return x;
 }
 
-void dfs(int x, int p, int h) {
+void dfs(int x, int p, int h, int i) {
+    if(i == ) {
+    }
+    else if(i == ) {
+    }
+    else {
+    }
+
     for(int y : adj[x]) if(y != p && !proc[y]) {
-        dfs(y, x, h + 1);
+        dfs(y, x, h + 1, i);
     }
 }
 
@@ -28,7 +35,9 @@ void cd(int x = 1, int p = -1) {
     int c = find_cen(x, p, sz[x]);
 
     for(int y : adj[c]) if(y != p && !proc[y]) {
-        dfs(y, c, 1);
+        for(int i = 0; i < ; ++i) {
+            dfs(y, c, 1, i);
+        }
     }
 
     proc[c] = 1;

@@ -20,6 +20,7 @@ struct BIT {
         for(--x;x > 0; x -= x&-x) ret -= a[x];
         return ret;
     }
+
     T qry(int x) {
         return qry(0, x);
     }

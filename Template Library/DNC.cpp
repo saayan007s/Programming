@@ -1,5 +1,5 @@
 // not tested at all
-int n, k;
+int N, K;
 int cost[N][N];
 int dp[N][K];
 int inf;
