@@ -4,7 +4,7 @@ This repository has my template library so that anyone can see it and so that I 
 
 The CSES problem set can be found [here](https://cses.fi/problemset/). I have solutions to some of them in this repository (spefically dynamic programming, range queries and tree algorithms).
 
-This is [cp-algorithms](https://cp-algorithms.com/)
+This is [cp-algorithms](https://cp-algorithms.com/). It has explanations as well as sample problems for many topics.
 
 ## Plans to finish by mid-November
 
