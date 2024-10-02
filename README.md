@@ -8,13 +8,13 @@ The CSES problem set is [here](https://cses.fi/problemset/)
 
 This is [cp-algorithms](https://cp-algorithms.com/)
 
-## Plans to finish by mid-june
+## Plans to finish by mid-November
 
 - [ ] write a well documented readable othello game java
-<!-- - [ ] write and upload the following from [cp-algorithms](https://cp-algorithms.com) -->
-<!--   - [ ] knuth optimisation -->
-<!--   - [ ] bridge finding -->
-<!--   - [x] convex hull trick -->
-<!--   - [ ] disjoint set union problems -->
+- [ ] write and upload the following from [cp-algorithms](https://cp-algorithms.com)
+  - [ ] [knuth optimisation](https://cp-algorithms.com/dynamic_programming/knuth-optimization.html)
+  - [ ] bridge finding
+  - [x] convex hull trick
+  - [ ] disjoint set union problems
 - [ ] write solutions to all past [INOI problems](https://www.codechef.com/INOIPRAC): I have about ten problems left
 - [ ] upload solutions to all problems from the [atcoder dp contest](https://atcoder.jp/contests/dp/tasks): 1 problems left
